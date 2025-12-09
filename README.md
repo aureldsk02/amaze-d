@@ -53,6 +53,11 @@ make
 ./amaze-d -v < tests/test.txt
 ```
 
+### 🪟 Windows
+
+1. Compilez le projet (nécessite GCC/MinGW) : `make`
+2. Lancez la démo : `.\demo.bat` ou double-cliquez sur `demo.bat`
+
 ---
 
 ## 🎮 Utilisation

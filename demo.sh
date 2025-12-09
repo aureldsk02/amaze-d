@@ -12,6 +12,12 @@ RESET='\033[0m'
 
 clear
 
+BIN="./amaze-d"
+if [ ! -f "$BIN" ] && [ -f "./amaze-d.exe" ]; then
+    BIN="./amaze-d.exe"
+fi
+
+
 echo -e "${CYAN}${BOLD}"
 cat << "EOF"
     ╔═══════════════════════════════════════════════════════════╗
@@ -30,7 +36,7 @@ sleep 1
 echo -e "${YELLOW}${BOLD}🎬 Demo 1: Simple Path${RESET}"
 echo -e "${CYAN}Description: 1 ant, direct connection${RESET}\n"
 sleep 1
-./amaze-d -v < tests/test_simple.txt
+$BIN -v < tests/test_simple.txt
 echo ""
 read -p "Press Enter to continue..."
 clear
@@ -38,7 +44,7 @@ clear
 echo -e "${YELLOW}${BOLD}🎬 Demo 2: Linear Path with Multiple Ants${RESET}"
 echo -e "${CYAN}Description: 3 ants navigating through 2 rooms${RESET}\n"
 sleep 1
-./amaze-d -v < tests/test.txt
+$BIN -v < tests/test.txt
 echo ""
 read -p "Press Enter to continue..."
 clear
@@ -46,7 +52,7 @@ clear
 echo -e "${YELLOW}${BOLD}🎬 Demo 3: Longer Linear Path${RESET}"
 echo -e "${CYAN}Description: 4 ants through 5 rooms${RESET}\n"
 sleep 1
-./amaze-d -v < tests/test2.txt
+$BIN -v < tests/test2.txt
 echo ""
 read -p "Press Enter to continue..."
 clear
@@ -54,7 +60,7 @@ clear
 echo -e "${YELLOW}${BOLD}🎬 Demo 4: Complex Graph${RESET}"
 echo -e "${CYAN}Description: 5 ants in a graph with multiple paths${RESET}\n"
 sleep 1
-./amaze-d -v < tests/test3.txt
+$BIN -v < tests/test3.txt
 echo ""
 read -p "Press Enter to continue..."
 clear
@@ -67,7 +73,7 @@ cat << "EOF"
     ║                                                           ║
     ║              Thank you for watching!                      ║
     ║                                                           ║
-    ║     Try it yourself with: ./amaze-d -v < your_file.txt   ║
+    ║     Try it yourself with: $BIN -v < your_file.txt   ║
     ║                                                           ║
     ╚═══════════════════════════════════════════════════════════╝
 EOF
